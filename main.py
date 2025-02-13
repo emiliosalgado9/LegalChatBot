@@ -1,9 +1,11 @@
 import openai
 from flask import Flask, request, jsonify
+from flask_cors import CORS  # Import CORS
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all domains
 
-# Replace with your OpenAI API Key
+# 🔹 Replace this with your OpenAI API Key
 OPENAI_API_KEY = "your-api-key-here"
 openai.api_key = OPENAI_API_KEY
 
@@ -24,10 +26,4 @@ def chat():
         )
 
         bot_message = response["choices"][0]["message"]["content"]
-        return jsonify({"response": bot_message})
-
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=10000)
+        return jsonify({"response": bot_m
