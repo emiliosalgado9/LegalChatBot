@@ -25,7 +25,7 @@ def chat():
             ]
         )
 
-        bot_message = response.choices[0].message["content"]
+        bot_message = response["choices"][0]["message"]["content"]
         return jsonify({"response": bot_message})
 
     except Exception as e:
