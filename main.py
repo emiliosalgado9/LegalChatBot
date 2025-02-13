@@ -25,7 +25,7 @@ def chat():
             ]
         )
 
-        bot_message = response["choices"][0]["message"]["content"]
+        bot_message = response.choices[0].message["content"]
         return jsonify({"response": bot_message})
 
     except Exception as e:
@@ -33,4 +33,3 @@ def chat():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)
-
